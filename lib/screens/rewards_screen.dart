@@ -85,7 +85,6 @@ class RewardsScreen extends StatelessWidget {
                     'Available Rewards',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  SizedBox(height: 16),
                   GridView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
@@ -119,7 +118,7 @@ class RewardsScreen extends StatelessWidget {
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
             blurRadius: 10,
-            offset: Offset(0, 4),
+            // offset: Offset(10, 10),
           ),
         ],
       ),
@@ -138,10 +137,11 @@ class RewardsScreen extends StatelessWidget {
               size: 32,
             ),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 8),
           Text(
             reward['title'],
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              fontSize: reward['title'].length > 15 ? 15 : 24,),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 8),
@@ -158,7 +158,7 @@ class RewardsScreen extends StatelessWidget {
             '${reward['points']} points',
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-          SizedBox(height: 16),
+          // SizedBox(height: 16),
           ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
@@ -167,7 +167,8 @@ class RewardsScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
-            child: Text('Redeem'),
+            child: Text('Redeem',
+            style: TextStyle(color: Colors.white),),
           ),
         ],
       ),
