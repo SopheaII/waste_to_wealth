@@ -3,6 +3,8 @@ import 'package:waste_to_wealth/theme/theme_app.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class PickupSchedulerScreen extends StatefulWidget {
+  const PickupSchedulerScreen({super.key});
+
   @override
   _PickupSchedulerScreenState createState() => _PickupSchedulerScreenState();
 }
@@ -11,7 +13,7 @@ class _PickupSchedulerScreenState extends State<PickupSchedulerScreen> {
   DateTime _selectedDay = DateTime.now();
   DateTime _focusedDay = DateTime.now();
   String _selectedTime = '09:00 AM';
-  List<String> _selectedTypes = [];
+  final List<String> _selectedTypes = [];
   bool _isRecurring = false;
   String _estimatedWeight = '';
 
@@ -43,10 +45,10 @@ class _PickupSchedulerScreenState extends State<PickupSchedulerScreen> {
           'Schedule Pickup',
           style: TextStyle(color: AppTheme.textColor),
         ),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppTheme.textColor),
-          onPressed: () => Navigator.pop(context),
-        ),
+        // leading: IconButton(
+          // icon: Icon(Icons.arrow_back, color: AppTheme.textColor),
+          // onPressed: () => Navigator.pop(context),
+        // ),
       ),
       body: SingleChildScrollView(
         child: Column(

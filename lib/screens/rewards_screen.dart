@@ -29,6 +29,8 @@ class RewardsScreen extends StatelessWidget {
     },
   ];
 
+  RewardsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,11 +39,8 @@ class RewardsScreen extends StatelessWidget {
         slivers: [
           SliverAppBar(
             expandedHeight: 200,
-            floating: false,
-            pinned: true,
             backgroundColor: AppTheme.primaryColor,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('My Rewards'),
               background: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
