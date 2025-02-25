@@ -105,247 +105,249 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Hello, Alex 👋',
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    Text(
-                      'Let\'s make earth cleaner',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    IconButton(
-                      icon: Stack(
-                        children: [
-                          const Icon(Icons.notifications_outlined),
-                          Positioned(
-                            right: 0,
-                            top: 0,
-                            child: Container(
-                              padding: const EdgeInsets.all(4),
-                              decoration: BoxDecoration(
-                                color: AppTheme.primaryColor,
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Text(
-                                '2',
-                                style: TextStyle(color: Colors.white, fontSize: 8),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      onPressed: () {},
-                    ),
-                    const CircleAvatar(
-                      radius: 20,
-                      backgroundImage: NetworkImage('https://i.pravatar.cc/100'),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                        AppTheme.primaryColor,
-                        AppTheme.accentColor,
-                      ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                borderRadius: BorderRadius.circular(24),
-              ),
-              child: Column(
+    return SafeArea(
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Total Points',
-                            style: TextStyle(color: Colors.white70, fontSize: 16),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            '1,234',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const Text(
-                            '\$246.80',
-                            style: TextStyle(color: Colors.white70, fontSize: 16),
-                          ),
-                        ],
+                      Text(
+                        'Hello, Alex 👋',
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                        decoration: BoxDecoration(
-                          color: Colors.white24,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: const Row(
-                          children: [
-                            Icon(Icons.arrow_upward, color: Colors.white, size: 16),
-                            Text(
-                              '12.5%',
-                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
+                      Text(
+                        'Let\'s make earth cleaner',
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20),
-                  SizedBox(
-                    height: 100,
-                    child: LineChart(
-                      LineChartData(
-                        gridData: const FlGridData(show: false),
-                        titlesData: const FlTitlesData(show: false),
-                        borderData: FlBorderData(show: false),
-                        lineBarsData: [
-                          LineChartBarData(
-                            spots: const [
-                              FlSpot(0, 3),
-                              FlSpot(2.6, 2),
-                              FlSpot(4.9, 5),
-                              FlSpot(6.8, 3.1),
-                              FlSpot(8, 4),
-                              FlSpot(9.5, 3),
-                              FlSpot(11, 4),
-                            ],
-                            isCurved: true,
-                            color: Colors.white70,
-                            barWidth: 2,
-                            dotData: const FlDotData(show: false),
-                            belowBarData: BarAreaData(
-                              show: true,
-                              color: Colors.white.withOpacity(0.1),
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: Stack(
+                          children: [
+                            const Icon(Icons.notifications_outlined),
+                            Positioned(
+                              right: 0,
+                              top: 0,
+                              child: Container(
+                                padding: const EdgeInsets.all(4),
+                                decoration: BoxDecoration(
+                                  color: AppTheme.primaryColor,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Text(
+                                  '2',
+                                  style: TextStyle(color: Colors.white, fontSize: 8),
+                                ),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
+                        onPressed: () {},
                       ),
-                    ),
+                      const CircleAvatar(
+                        radius: 20,
+                        backgroundImage: NetworkImage('https://i.pravatar.cc/100'),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Quick Actions',
-                  style: Theme.of(context).textTheme.headlineSmall,
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                          AppTheme.primaryColor,
+                          AppTheme.accentColor,
+                        ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(24),
                 ),
-                const SizedBox(height: 16),
-                Row(
+                child: Column(
                   children: [
-                    Expanded(
-                      child: _buildQuickActionCard(
-                        context,
-                        Icons.calendar_today,
-                        'Schedule\nPickup',
-                        Colors.green[700]!,
-                        () => Navigator.pushNamed(context, '/scheduler'),
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Total Points',
+                              style: TextStyle(color: Colors.white70, fontSize: 16),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              '1,234',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 32,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const Text(
+                              '\$246.80',
+                              style: TextStyle(color: Colors.white70, fontSize: 16),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          decoration: BoxDecoration(
+                            color: Colors.white24,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Row(
+                            children: [
+                              Icon(Icons.arrow_upward, color: Colors.white, size: 16),
+                              Text(
+                                '12.5%',
+                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: _buildQuickActionCard(
-                        context,
-                        Icons.card_giftcard,
-                        'Redeem\nPoints',
-                        Colors.orange[400]!,
-                        // () => Navigator.pushNamed(context, '/rewards'),
-                        () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (context) => RewardsScreen()));
-                        }
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: 100,
+                      child: LineChart(
+                        LineChartData(
+                          gridData: const FlGridData(show: false),
+                          titlesData: const FlTitlesData(show: false),
+                          borderData: FlBorderData(show: false),
+                          lineBarsData: [
+                            LineChartBarData(
+                              spots: const [
+                                FlSpot(0, 3),
+                                FlSpot(2.6, 2),
+                                FlSpot(4.9, 5),
+                                FlSpot(6.8, 3.1),
+                                FlSpot(8, 4),
+                                FlSpot(9.5, 3),
+                                FlSpot(11, 4),
+                              ],
+                              isCurved: true,
+                              color: Colors.white70,
+                              barWidth: 2,
+                              dotData: const FlDotData(show: false),
+                              belowBarData: BarAreaData(
+                                show: true,
+                                color: Colors.white.withOpacity(0.1),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
                 ),
-              ],
+              ),
             ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Recent Activity',
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    TextButton(onPressed: () {}, child: const Text('See All')),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                _buildActivityItem(
-                  context,
-                  'Plastic Collection',
-                  '3.5 kg',
-                  '+ 7 points',
-                  '2 hours ago',
-                  Icons.local_drink_outlined,
-                ),
-                _buildActivityItem(
-                  context,
-                  'Metal Collection',
-                  '2.1 kg',
-                  '+ 10 points',
-                  'Yesterday',
-                  Icons.settings_outlined,
-                ),
-                _buildActivityItem(
-                  context,
-                  'Points Redeemed',
-                  '\$5.00',
-                  '- 25 points',
-                  '2 days ago',
-                  Icons.card_giftcard,
-                ),
-              ],
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Quick Actions',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _buildQuickActionCard(
+                          context,
+                          Icons.calendar_today,
+                          'Schedule\nPickup',
+                          Colors.green[700]!,
+                          () => Navigator.pushNamed(context, '/scheduler'),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: _buildQuickActionCard(
+                          context,
+                          Icons.card_giftcard,
+                          'Redeem\nPoints',
+                          Colors.orange[400]!,
+                          // () => Navigator.pushNamed(context, '/rewards'),
+                          () {
+                            // Navigator.push(context, MaterialPageRoute(builder: (context) => RewardsScreen()));
+                          }
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Recent Activity',
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                      TextButton(onPressed: () {}, child: const Text('See All')),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  _buildActivityItem(
+                    context,
+                    'Plastic Collection',
+                    '3.5 kg',
+                    '+ 7 points',
+                    '2 hours ago',
+                    Icons.local_drink_outlined,
+                  ),
+                  _buildActivityItem(
+                    context,
+                    'Metal Collection',
+                    '2.1 kg',
+                    '+ 10 points',
+                    'Yesterday',
+                    Icons.settings_outlined,
+                  ),
+                  _buildActivityItem(
+                    context,
+                    'Points Redeemed',
+                    '\$5.00',
+                    '- 25 points',
+                    '2 days ago',
+                    Icons.card_giftcard,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
