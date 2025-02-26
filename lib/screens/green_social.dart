@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:waste_to_wealth/screens/post_detail_screen.dart';
 import 'package:waste_to_wealth/theme/theme_app.dart';
+import 'package:waste_to_wealth/widgets/post_cart.dart';
 import 'create_post_screen.dart';
 
 class GreenSocialScreen extends StatelessWidget {
-  final List<Map<String, dynamic>> _posts = [
+    final List<Map<String, dynamic>> _posts = [
     {
       'id': '1',
       'user': {
@@ -12,13 +14,52 @@ class GreenSocialScreen extends StatelessWidget {
       },
       'title': 'Beach Cleanup Initiative',
       'description': 'Join us this weekend for a beach cleanup! Let\'s make our oceans plastic-free.',
-      'image': 'https://picsum.photos/seed/1/400/300',
+      'images': [
+        'https://picsum.photos/seed/1/800/600',
+        'https://picsum.photos/seed/2/800/600',
+        'https://picsum.photos/seed/3/800/600',
+      ],
       'isFundraising': true,
       'likes': 124,
       'comments': 45,
       'timeAgo': '2h ago',
     },
-    // Add more posts...
+    {
+      'id': '2',
+      'user': {
+        'name': 'Jane Smith',
+        'avatar': 'https://i.pravatar.cc/150?img=2',
+      },
+      'title': 'Tree Planting Day',
+      'description': 'We planted 100 trees today! Every small action counts towards a greener future.',
+      'images': [
+        'https://picsum.photos/seed/4/800/600',
+        'https://picsum.photos/seed/5/800/600',
+      ],
+      'isFundraising': false,
+      'likes': 89,
+      'comments': 23,
+      'timeAgo': '5h ago',
+    },
+    {
+      'id': '3',
+      'user': {
+        'name': 'Mike Wilson',
+        'avatar': 'https://i.pravatar.cc/150?img=3',
+      },
+      'title': 'Recycling Workshop',
+      'description': 'Learn how to properly sort and recycle different types of waste. Workshop starts at 2 PM.',
+      'images': [
+        'https://picsum.photos/seed/6/800/600',
+        'https://picsum.photos/seed/7/800/600',
+        'https://picsum.photos/seed/8/800/600',
+        'https://picsum.photos/seed/9/800/600',
+      ],
+      'isFundraising': true,
+      'likes': 56,
+      'comments': 12,
+      'timeAgo': '1d ago',
+    },
   ];
 
   @override
@@ -56,99 +97,10 @@ class GreenSocialScreen extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 final post = _posts[index];
-                return _buildPostCard(context, post);
+                // return _buildPostCard(context, post);
+                return PostCard(post: post);
               },
               childCount: _posts.length,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildPostCard(BuildContext context, Map<String, dynamic> post) {
-    return Card(
-      margin: EdgeInsets.fromLTRB(16, 8, 16, 8),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ListTile(
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(post['user']['avatar']),
-            ),
-            title: Text(
-              post['user']['name'],
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            subtitle: Text(post['timeAgo']),
-            trailing: post['isFundraising']
-              ? Chip(
-                  label: Text(
-                    'Fundraising',
-                    style: TextStyle(
-                      color: AppTheme.primaryColor,
-                      fontSize: 12,
-                    ),
-                  ),
-                  backgroundColor: AppTheme.primaryColor.withOpacity(0.1),
-                )
-              : null,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  post['title'],
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  post['description'],
-                  style: TextStyle(color: Colors.grey[600]),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 12),
-          Image.network(
-            post['image'],
-            height: 200,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    IconButton(
-                      icon: Icon(Icons.favorite_border),
-                      onPressed: () {},
-                    ),
-                    Text('${post['likes']}'),
-                    SizedBox(width: 16),
-                    IconButton(
-                      icon: Icon(Icons.comment_outlined),
-                      onPressed: () {},
-                    ),
-                    Text('${post['comments']}'),
-                  ],
-                ),
-                IconButton(
-                  icon: Icon(Icons.share_outlined),
-                  onPressed: () {},
-                ),
-              ],
             ),
           ),
         ],
