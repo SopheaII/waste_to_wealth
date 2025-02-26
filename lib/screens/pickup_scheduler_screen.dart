@@ -40,10 +40,11 @@ class _PickupSchedulerScreenState extends State<PickupSchedulerScreen> {
       backgroundColor: AppTheme.backgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        toolbarHeight: 40,
         elevation: 0,
         title: Text(
           'Schedule Pickup',
-          style: TextStyle(color: AppTheme.textColor),
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: AppTheme.textColor)
         ),
         // leading: IconButton(
           // icon: Icon(Icons.arrow_back, color: AppTheme.textColor),

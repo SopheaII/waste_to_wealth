@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Waste-to-Wealth Collector',
       theme: ThemeData(
         primaryColor: Colors.green[700],

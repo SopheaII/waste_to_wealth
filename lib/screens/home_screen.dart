@@ -1,7 +1,8 @@
 // home_screen.dart
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:waste_to_wealth/screens/pickup_scheduler_screen.dart';
+import 'package:waste_to_wealth/screens/green_social.dart';
+import 'package:waste_to_wealth/screens/pickup_history.dart';
 import 'package:waste_to_wealth/screens/rewards_screen.dart';
 import 'package:waste_to_wealth/theme/theme_app.dart';
 
@@ -18,8 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
   // Routes for bottom navigation (using named routes from main.dart)
   final List<Widget> _screens = [
     HomeContent(),
-    PickupSchedulerScreen(),
-    RewardsScreen(),
+    PickupHistoryScreen(),
+    GreenSocialScreen(),
     Placeholder(), // Profile screen (to be implemented)
   ];
 
@@ -48,8 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 _buildNavItem(0, Icons.home_outlined, 'Home'),
-                _buildNavItem(1, Icons.calendar_today_outlined, 'Schedule'),
-                _buildNavItem(2, Icons.card_giftcard_outlined, 'Rewards'),
+                _buildNavItem(1, Icons.calendar_today_outlined, 'Pickup History'),
+                _buildNavItem(2, Icons.card_giftcard_outlined, 'Green Social'),
                 _buildNavItem(3, Icons.settings_outlined, 'Settings'),
               ],
             ),
@@ -291,7 +292,7 @@ class HomeContent extends StatelessWidget {
                           Colors.orange[400]!,
                           // () => Navigator.pushNamed(context, '/rewards'),
                           () {
-                            // Navigator.push(context, MaterialPageRoute(builder: (context) => RewardsScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => RewardsScreen()));
                           }
                         ),
                       ),
